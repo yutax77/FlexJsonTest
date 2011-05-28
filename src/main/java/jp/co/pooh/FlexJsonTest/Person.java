@@ -1,8 +1,6 @@
 package jp.co.pooh.FlexJsonTest;
 
-import flexjson.ClassLocator;
 import flexjson.JSONDeserializer;
-import flexjson.locators.TypeLocator;
 
 public class Person<T extends Detail> {
 	private String name;
@@ -26,5 +24,12 @@ public class Person<T extends Detail> {
 	}
 	public void setDetail(T detail) {
 		this.detail = detail;
+	}
+	
+	public static Person<PersonDetail> fromJson(String json){
+		return new JSONDeserializer<Person<PersonDetail>>()
+				.use(null, Person.class)
+				.use("detail", PersonDetail.class)
+				.deserialize(json);
 	}
 }

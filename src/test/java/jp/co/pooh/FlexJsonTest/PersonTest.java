@@ -13,7 +13,7 @@ public class PersonTest {
 							"\"detail\":{\"address\":\"foofoo\"}" + 
 							"}";
 		
-		Persons.fromJson(json);
+		Person.fromJson(json);
 	}
 
 }
